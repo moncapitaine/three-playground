@@ -2,7 +2,8 @@ import { Environment, ContactShadows, OrbitControls, OrthographicCamera } from '
 import { Canvas } from '@react-three/fiber'
 import { useState } from 'react'
 import {} from 'three'
-import { Robot } from './Robot'
+import { DaeAsset } from './DaeAsset'
+import { GltfAsset } from './GltfAsset'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,10 +26,10 @@ function App() {
         <directionalLight position={[0, 0, 10]} castShadow />
         <Environment preset="city" />
         <axesHelper />
-        <Robot path="/models/simplified_cell.dae" position={[0, 0, -1]} rotation={[0, 0, 0]} />
-        <Robot path="/models/sand_mold.dae" position={[1, 0.2, 1]} rotation={[Math.PI / 2, 0, 0]} />
-        <Robot path="/models/go_scan_with_mount_and_balls.dae" position={[0, 0, 0]} rotation={[0, 0, 0]} />
-
+        <DaeAsset path="/models/simplified_cell.dae" position={[0, 0, -1]} rotation={[0, 0, 0]} />
+        <DaeAsset path="/models/sand_mold.dae" position={[1, 0.2, 1]} rotation={[Math.PI / 2, 0, 0]} />
+        {/* <DaeAsset path="/models/go_scan_with_mount_and_balls.dae" position={[0, 0, 0]} rotation={[0, 0, 0]} /> */}
+        <GltfAsset path="/models/go_scan_with_mount_and_balls.gltf" position={[0, 0, 0]} rotation={[0, 0, 0]} />
         <ContactShadows scale={10} blur={3} />
         <OrbitControls makeDefault enableZoom />
       </Canvas>
